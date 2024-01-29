@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -18,12 +17,11 @@ const Footer = () => {
             <Link
               style={{ color: "white" }}
               className="nav-link"
-              to={"https://youtube.com/indiancoders"}
+              to={"https://www.hnbgu.ac.in/"}
             >
-              Indian Coders
+            HEMVATI NANDAN BAHUGUNA GARHWAL UNIVERSITY( A Central University )
             </Link>
           </span>
-          💘
         </p>
       </div>
     </footer>
