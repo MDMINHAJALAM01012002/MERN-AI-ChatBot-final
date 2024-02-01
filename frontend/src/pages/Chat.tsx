@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Box, Avatar, Typography, Button, IconButton } from "@mui/material";
 import red from "@mui/material/colors/red";
 import { useAuth } from "../context/AuthContext";
@@ -20,7 +20,8 @@ const Chat = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const auth = useAuth();
   const [chatMessages, setChatMessages] = useState<Message[]>([]);
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const content = inputRef.current?.value as string;
     if (inputRef && inputRef.current) {
       inputRef.current.value = "";
@@ -166,7 +167,8 @@ const Chat = () => {
             <ChatItem content={chat.content} role={chat.role} key={index} />
           ))}
         </Box>
-        <div
+        <form
+          onSubmit={handleSubmit}
           style={{
             width: "100%",
             borderRadius: 8,
@@ -189,10 +191,10 @@ const Chat = () => {
               fontSize: "20px",
             }}
           />
-          <IconButton onClick={handleSubmit} sx={{ color: "white", mx: 1 }}>
+          <IconButton type="submit" sx={{ color: "white", mx: 1 }}>
             <IoMdSend />
           </IconButton>
-        </div>
+        </form>
       </Box>
     </Box>
   );
