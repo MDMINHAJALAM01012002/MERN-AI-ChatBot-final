@@ -15,7 +15,13 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 //remove it in production
 app.use(morgan("dev"));
 
-app.get("/", (req, res) => res.send("<h1>Welcome to the App.</h1>"))
+app.get("/", (req, res) => res.send("<h1>Welcome to the App.</h1>"));
+
+app.get("/api", (req, res) =>
+  res.json({
+    message: "JAI SHREE RAM 🚩",
+  })
+);
 
 app.use("/api/v1", appRouter);
 

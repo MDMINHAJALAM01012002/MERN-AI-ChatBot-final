@@ -1,10 +1,21 @@
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import TypingAnim from "../components/typer/TypingAnim";
 import Footer from "../components/footer/Footer";
+import { useEffect } from "react";
+import { apiTest } from "../helpers/api-communicator";
 
 const Home = () => {
   const theme = useTheme();
   const isBelowMd = useMediaQuery(theme.breakpoints.down("md"));
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await apiTest();
+      console.log(data.message);
+    };
+    getData();
+  }, []);
+
   return (
     <Box width={"100%"} height={"100%"}>
       <Box
