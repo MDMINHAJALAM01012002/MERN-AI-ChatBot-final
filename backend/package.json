@@ -8,7 +8,8 @@
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\" ",
     "build": "tsc",
     "start": "npx tsc && node dist/index.js",
-    "test": "npm i && npm i --prefix frontend"
+    "test": "npm i && cd ../frontend && npm i",
+    "myscript": "npm run test && cd ../frontend && npm run build"
   },
   "keywords": [],
   "author": "",
